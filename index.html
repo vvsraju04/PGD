@@ -28,6 +28,7 @@
 
         watchID = navigator.compass.watchHeading(onSuccess, onError, options);
 		 watchID1 =navigator.accelerometer.watchAcceleration(onSuccess1, onError1, options);
+		 showAlert();
 
     }
 
@@ -67,6 +68,14 @@
                             'Acceleration Z: ' + acceleration.z + '<br />' +
                             'Timestamp: '      + acceleration.timestamp + '<br />';
 
+    }
+function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
     }
 
 
