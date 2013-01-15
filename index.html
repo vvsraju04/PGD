@@ -19,6 +19,21 @@
         startWatch();
     }
 
+	 function alertDismissed() {
+        // do something
+    }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
     // Start watching the compass
     //
     function startWatch() {
@@ -69,15 +84,6 @@
                             'Timestamp: '      + acceleration.timestamp + '<br />';
 
     }
-function showAlert() {
-        navigator.notification.alert(
-            'You are the winner!',  // message
-            alertDismissed,         // callback
-            'Game Over',            // title
-            'Done'                  // buttonName
-        );
-    }
-
 
 
     </script>
@@ -87,6 +93,7 @@ function showAlert() {
 	<div id="accelerometer">Waiting for accelerometer...</div>
     <button onclick="startWatch();">Start Watching</button>
     
-	<button onclick="showAlert();">Show alert</button>
+	<button onclick="stopWatch();">Stop Watching</button>
+	<button onclick="showAlert();">show Alert</button>
   </body>
 </html>
