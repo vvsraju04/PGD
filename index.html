@@ -39,7 +39,7 @@
     function startWatch() {
 
         // Update compass every 3 seconds
-        var options = { frequency: 3000 };
+        var options = { frequency: 500 };
 
         watchID = navigator.compass.watchHeading(onSuccess, onError, options);
 		watchID1 =navigator.accelerometer.watchAcceleration(onSuccess1, onError1, options);
@@ -82,7 +82,8 @@
                             'Acceleration Y: ' + acceleration.y + '<br />' +
                             'Acceleration Z: ' + acceleration.z + '<br />' +
                             'Timestamp: '      + acceleration.timestamp + '<br />';
-
+		var ele=document.getElementById('cir');
+		ele.style.top+=(acceleration.y*10);
     }
 
 
@@ -95,5 +96,6 @@
     
 	<button onclick="stopWatch();">Stop Watching</button>
 	<button onclick="showAlert();">show Alert</button>
+	<div id="cir" height="50" width="50" style="position:absolute;top:10px;left:10px;background:red;border:30px solid red;border-radius:30px"></div>
   </body>
 </html>
