@@ -85,7 +85,8 @@
 		var ele=document.getElementById('cir');
 		var ele1=document.getElementById('toppy');
 		ele.style.top=parseInt(ele.style.top)+(parseInt(acceleration.y*10))+"px";
-		ele1.innerHTML="Top is :"+ele.style.top;
+		ele.style.left=parseInt(ele.style.left)+(parseInt(acceleration.x*(-1)*10))+"px";
+		ele1.innerHTML="Top is :"+ele.style.top+";Left is :"+ele.style.left;
 		
     }
 
