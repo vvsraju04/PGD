@@ -83,8 +83,10 @@
                             'Acceleration Z: ' + acceleration.z + '<br />' +
                             'Timestamp: '      + acceleration.timestamp + '<br />';
 		var ele=document.getElementById('cir');
-		showAlert(typeof acceleration.y);
-		ele.style.top+=(parseInt(acceleration.y)*10)+"px";
+		var ele1=document.getElementById('toppy');
+		ele.style.top=parseInt(ele.style.top)+(parseInt(acceleration.y*10))+"px";
+		ele1.innerHTML="Top is :"+ele.style.top;
+		
     }
 
 
@@ -93,6 +95,7 @@
   <body>
     <div id="heading">Waiting for heading...</div>
 	<div id="accelerometer">Waiting for accelerometer...</div>
+	<div id="toppy">Waiting for accelerometer...</div>
     <button onclick="startWatch();">Start Watching</button>
     
 	<button onclick="stopWatch();">Stop Watching</button>
