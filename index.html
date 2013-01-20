@@ -2,6 +2,24 @@
 <html>
   <head>
     <title>Compass Example</title>
+	<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  #container {
+    margin: 0 auto;
+    width: 800px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 2px;
+  }
+  canvas {
+   display: block;
+  }
+  </style>
 
     <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
     <script type="text/javascript" charset="utf-8">
@@ -60,7 +78,17 @@
         }
 
     }
-
+ function drawCircle(X,Y,r){
+ var canvas = document.getElementById('workspace');
+      var context = canvas.getContext('2d');
+  context.beginPath();
+      context.arc(X, Y, r, 0, 2 * Math.PI, false);
+      context.fillStyle = 'green';
+      context.fill();
+      context.lineWidth = 5;
+      context.strokeStyle = '#003300';
+      context.stroke();
+  }
     // onSuccess: Get the current heading
     //
     function onSuccess(heading) {
@@ -77,7 +105,7 @@
         alert('acc error ' );
     }
 	function onSuccess1(acceleration) {
-      	 var element = document.getElementById('accelerometer');
+      /*	 var element = document.getElementById('accelerometer');
         element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
                             'Acceleration Y: ' + acceleration.y + '<br />' +
                             'Acceleration Z: ' + acceleration.z + '<br />' +
@@ -87,6 +115,8 @@
 		ele.style.top=parseInt(ele.style.top)+(parseInt(acceleration.y*10))+"px";
 		ele.style.left=parseInt(ele.style.left)+(parseInt(acceleration.x*(-1)*10))+"px";
 		ele1.innerHTML="Top is :"+ele.style.top+";Left is :"+ele.style.left;
+		*/
+		context.clearRect(0, 0, canvas.width, canvas.height);
 		
     }
 
@@ -94,13 +124,47 @@
     </script>
   </head>
   <body>
-    <div id="heading">Waiting for heading...</div>
+   <!-- <div id="heading">Waiting for heading...</div>
 	<div id="accelerometer">Waiting for accelerometer...</div>
 	<div id="toppy">Waiting for accelerometer...</div>
     <button onclick="startWatch();">Start Watching</button>
     
 	<button onclick="stopWatch();">Stop Watching</button>
 	<button onclick="showAlert('clicked');">show Alert</button>
-	<div id="cir" height="50" width="50" style="position:absolute;top:10px;left:10px;background:red;border:30px solid red;border-radius:30px"></div>
-  </body>
+	<div id="cir" height="50" width="50" style="position:absolute;top:10px;left:10px;background:red;border:30px solid red;border-radius:30px"></div>-->
+	<div id="container">
+    <canvas id="workspace" width="800" height="600"></canvas>
+  </div>
+  <script>
+ 
+  (function() {
+    // We are resizing for mobile devices only. For other devices, the
+    // dimensions will be stuck at 800 * 600. To change the default dimensions,
+    // change the height and width of the canvas and the width of the #container
+    var win = window,
+        doc = document,
+        w = win.innerWidth,
+        h = win.innerHeight,
+        container = doc.getElementById('container'),
+        canvas = doc.getElementById('workspace');
+    
+    if( win.navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/i) ) {
+      canvas.height = h;
+      canvas.width  = w;
+      container.style.height = h+"px";
+      container.style.width = w+"px";
+    }
+	
+      var centerX = canvas.width / 2;
+      var centerY = canvas.height / 2;
+      var radius = 20;
+	  drawCircle(centerX,centerY,radius);
+	  
+
+      
+  })();
+  
+  </script>
+</body>
 </html>
+
