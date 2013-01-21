@@ -94,6 +94,13 @@ var centerX ;
       context.strokeStyle = '#003300';
       context.stroke();
   }
+  function writeText(str)
+  {
+  var canvas = document.getElementById('workspace');
+      var context = canvas.getContext('2d');
+  context.font = 'italic 20pt Calibri';
+      context.fillText('Hello World!', 15, 10);
+   }
     // onSuccess: Get the current heading
     //
     function onSuccess(heading) {
@@ -124,6 +131,7 @@ var centerX ;
 		centerY=centerY+(parseInt(acceleration.y*10));
 		centerX=centerX+(parseInt(acceleration.x*(-1)*10));
 		radius=20;
+		writeText(acceleration.x+" "+acceleration.y);
 		drawCircle(centerX,centerY,radius);
     }
 
