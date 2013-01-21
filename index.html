@@ -93,7 +93,7 @@ var centerX=0 ;
     function startWatch() {
 
         // Update compass every 3 seconds
-        var options = { frequency: 500 };
+        var options = { frequency: 300 };
 
         watchID = navigator.compass.watchHeading(onSuccess, onError, options);
 		watchID1 =navigator.accelerometer.watchAcceleration(onSuccess1, onError1, options);
@@ -162,12 +162,11 @@ var centerX=0 ;
 		var canvas = document.getElementById('workspace');
 		centerY=centerY+(parseInt(acceleration.y*10));
 		centerX=centerX+(parseInt(acceleration.x*(-1)*10));
-		radius=20;
 		//writeText(centerY+" "+centerX);
 		if(centerX<radius){centerX=radius;}
 		if(centerY<radius){centerY=radius;}
-		if(centerX>(canvas.width-radius)){centerX=canvas.width-radius;}
-		if(centerY>(canvas.height-radius)){centerY=canvas.height-radius;}
+		if(centerX>(canvas.width-radius)){centerX=(canvas.width)-radius;}
+		if(centerY>(canvas.height-radius)){centerY=(canvas.height)-radius;}
 		drawCircle(centerX,centerY,radius);
 		//drawCircle(10,70,radius);
     }
@@ -207,7 +206,7 @@ var centerX=0 ;
       container.style.height = h+"px";
       container.style.width = w+"px";
     }
-	  drawCircle(canvas.width/2,canvas.height/2,radius);
+	  //drawCircle(canvas.width/2,canvas.height/2,radius);
 	  
 
       
