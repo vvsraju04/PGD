@@ -28,6 +28,7 @@
 var centerX=0 ;
       var centerY=0;
       var radius = 20;
+	  watch_stopped=0;
     // The watch id references the current `watchHeading`
     var watchID = null;
 
@@ -65,7 +66,7 @@ var centerX=0 ;
 
         watchID = navigator.compass.watchHeading(onSuccess, onError, options);
 		watchID1 =navigator.accelerometer.watchAcceleration(onSuccess1, onError1, options);
-		showAlert('You are winnner');
+		//showAlert('You are winnner');
 
     }
 
