@@ -82,6 +82,7 @@ var centerX=0 ;
         }
 
     }
+	f
  function drawCircle(X,Y,r){
  var canvas = document.getElementById('workspace');
       var context = canvas.getContext('2d');
@@ -103,8 +104,22 @@ var centerX=0 ;
   var canvas = document.getElementById('workspace');
       var context = canvas.getContext('2d');
   context.font = 'italic 20pt Calibri';
-      context.fillText(str, 35, 35);
+      context.fillText(str, canvas.width/2, canvas.height/2);
    }
+   unction checkWatch(){
+		if(watch_stopped=1)
+		{
+			watch_stopped=0;
+			startWatch();
+		}
+		else
+		{
+			watch_stopped=1;
+			stopWatch();
+			writeText("Paused");
+		}
+			
+	}
     // onSuccess: Get the current heading
     //
     function onSuccess(heading) {
@@ -153,7 +168,7 @@ var centerX=0 ;
 	<button onclick="showAlert('clicked');">show Alert</button>
 	<div id="cir" height="50" width="50" style="position:absolute;top:10px;left:10px;background:red;border:30px solid red;border-radius:30px"></div>-->
 	<div id="container">
-    <canvas id="workspace" width="800" height="600"></canvas>
+    <canvas id="workspace" width="800" height="600" onclick="checkWatch();"></canvas>
   </div>
   <script>
  
