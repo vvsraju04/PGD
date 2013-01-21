@@ -88,10 +88,7 @@ var centerX=0 ;
  var canvas = document.getElementById('workspace');
       var context = canvas.getContext('2d');
 	  context.clearRect(0, 0, canvas.width, canvas.height);
-	  	if(X<r){X=r;}
-		if(Y<r){Y=r;}
-		if(X>canvas.width){X=canvas.width-r;}
-		if(Y>canvas.height){Y=canvas.height-r;}
+	  	
   context.beginPath();
       context.arc(X, Y, r, 0, 2 * Math.PI, false);
       context.fillStyle = 'green';
@@ -114,7 +111,7 @@ var centerX=0 ;
     context.lineWidth = 7;
     context.strokeStyle = 'white';
     context.stroke();*/
-	context.font = '20pt Calibri';
+	context.font = ' bold 20pt Calibri';
     context.fillStyle = 'black';
     context.lineWidth = 3;
     context.fillText(str, (canvas.width/2)-(met_width/2), canvas.height/2);
@@ -166,6 +163,10 @@ var centerX=0 ;
 		centerX=centerX+(parseInt(acceleration.x*(-1)*10));
 		radius=20;
 		//writeText(centerY+" "+centerX);
+		if(centerX<r){centerX=radius;}
+		if(centerY<r){centerY=radius;}
+		if(centerX>(canvas.width-radius)){centerX=canvas.width-radius;}
+		if(centerY>(canvas.height-radius)){centerY=canvas.height-radius;}
 		drawCircle(centerX,centerY,radius);
 		//drawCircle(10,70,radius);
     }
