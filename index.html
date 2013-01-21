@@ -85,7 +85,7 @@ var centerX = canvas.width / 2;
  function drawCircle(X,Y,r){
  var canvas = document.getElementById('workspace');
       var context = canvas.getContext('2d');
-	  context.clearRect(0, 0, canvas.width, canvas.height);
+	  //context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
       context.arc(X, Y, r, 0, 2 * Math.PI, false);
       context.fillStyle = 'green';
@@ -98,7 +98,7 @@ var centerX = canvas.width / 2;
     //
     function onSuccess(heading) {
         var element = document.getElementById('heading');
-        element.innerHTML = 'Heading: ' + heading.magneticHeading;
+       // element.innerHTML = 'Heading: ' + heading.magneticHeading;
     }
 
     // onError: Failed to get the heading
