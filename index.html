@@ -102,10 +102,22 @@ var centerX=0 ;
   }
   function writeText(str)
   {
-  var canvas = document.getElementById('workspace');
-      var context = canvas.getContext('2d');
-  context.font = 'italic 20pt Calibri';
-      context.fillText(str, canvas.width/2, canvas.height/2);
+    var canvas = document.getElementById('workspace');
+    var context = canvas.getContext('2d');
+    var metrics = context.measureText('measure me!');
+    var met_width = metrics.width;
+    
+	context.beginPath();
+    context.rect((canvas.width/2)-(met_width/2)-10, (canvas.height/2)-5 , met_width+20, 50);
+    context.fillStyle = 'black';
+    context.fill();
+    context.lineWidth = 7;
+    context.strokeStyle = 'white';
+    context.stroke();
+	context.font = '20pt Calibri';
+    context.fillStyle = 'white';
+    context.lineWidth = 3;
+    context.fillText(str, (canvas.width/2)-(met_width/2), canvas.height/2);
    }
    function checkWatch(e){
    e.preventDefault();
