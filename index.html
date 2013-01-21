@@ -107,7 +107,8 @@ var centerX=0 ;
   context.font = 'italic 20pt Calibri';
       context.fillText(str, canvas.width/2, canvas.height/2);
    }
-   function checkWatch(){
+   function checkWatch(e){
+   e.preventDefault();
 		if(watch_stopped=1)
 		{
 			watch_stopped=0;
@@ -169,7 +170,7 @@ var centerX=0 ;
 	<button onclick="showAlert('clicked');">show Alert</button>
 	<div id="cir" height="50" width="50" style="position:absolute;top:10px;left:10px;background:red;border:30px solid red;border-radius:30px"></div>-->
 	<div id="container">
-   <canvas id="workspace" width="800" height="600" onclick="checkWatch();"></canvas>
+   <canvas id="workspace" width="800" height="600" ></canvas>
 	
   </div>
   <script>
@@ -184,7 +185,7 @@ var centerX=0 ;
         h = win.innerHeight,
         container = doc.getElementById('container'),
         canvas = doc.getElementById('workspace');
-    
+     canvas.addEventListener("touchstart", checkWatch, false);
     if( win.navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/i) ) {
       canvas.height = h;
       canvas.width  = w;
