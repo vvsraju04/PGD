@@ -86,6 +86,10 @@ var centerX=0 ;
  var canvas = document.getElementById('workspace');
       var context = canvas.getContext('2d');
 	  context.clearRect(0, 0, canvas.width, canvas.height);
+	  	if(X<r){X=r;}
+		if(Y<r){Y=r;}
+		if(X>canvas.width){X=canvas.width-r;}
+		if(Y>canvas.height){Y=canvas.height-r;}
   context.beginPath();
       context.arc(X, Y, r, 0, 2 * Math.PI, false);
       context.fillStyle = 'green';
