@@ -118,7 +118,7 @@ var centerX=0 ;
    }
    function checkWatch(e){
    e.preventDefault();
-   showAlert("You are winnners");
+   //showAlert("You are winnners");
 		if(watch_stopped==1)
 		{
 			watch_stopped=0;
@@ -163,11 +163,11 @@ var centerX=0 ;
 		centerX=centerX+(parseInt(acceleration.x*(-1)*10));
 		radius=20;
 		//writeText(centerY+" "+centerX);
-		if(centerX<radius){centerX=radius;}
+		/*if(centerX<radius){centerX=radius;}
 		if(centerY<radius){centerY=radius;}
 		if(centerX>(canvas.width-radius)){centerX=canvas.width-radius;}
 		if(centerY>(canvas.height-radius)){centerY=canvas.height-radius;}
-		drawCircle(centerX,centerY,radius);
+		drawCircle(centerX,centerY,radius);*/
 		//drawCircle(10,70,radius);
     }
 
