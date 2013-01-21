@@ -56,34 +56,6 @@ var centerX=0 ;
             'Done'                  // buttonName
         );
     }
-
-    // Start watching the compass
-    //
-    function startWatch() {
-
-        // Update compass every 3 seconds
-        var options = { frequency: 500 };
-
-        watchID = navigator.compass.watchHeading(onSuccess, onError, options);
-		watchID1 =navigator.accelerometer.watchAcceleration(onSuccess1, onError1, options);
-		//showAlert('You are winnner');
-
-    }
-
-    // Stop watching the compass
-    //
-    function stopWatch() {
-        if (watchID) {
-            navigator.compass.clearWatch(watchID);
-            watchID = null;
-        }
-		if (watchID1) {
-            navigator.accelerometer.clearWatch(watchID1);
-            watchID1 = null;
-        }
-
-    }
-	
  function drawCircle(X,Y,r){
  var canvas = document.getElementById('workspace');
       var context = canvas.getContext('2d');
@@ -116,6 +88,34 @@ var centerX=0 ;
     context.lineWidth = 3;
     context.fillText(str, (canvas.width/2)-(met_width/2), canvas.height/2);
    }
+    // Start watching the compass
+    //
+    function startWatch() {
+
+        // Update compass every 3 seconds
+        var options = { frequency: 500 };
+
+        watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+		watchID1 =navigator.accelerometer.watchAcceleration(onSuccess1, onError1, options);
+		//showAlert('You are winnner');
+
+    }
+
+    // Stop watching the compass
+    //
+    function stopWatch() {
+        if (watchID) {
+            navigator.compass.clearWatch(watchID);
+            watchID = null;
+        }
+		if (watchID1) {
+            navigator.accelerometer.clearWatch(watchID1);
+            watchID1 = null;
+        }
+
+    }
+	
+
    function checkWatch(e){
    e.preventDefault();
    //showAlert("You are winnners");
@@ -159,15 +159,16 @@ var centerX=0 ;
 		ele.style.left=parseInt(ele.style.left)+(parseInt(acceleration.x*(-1)*10))+"px";
 		ele1.innerHTML="Top is :"+ele.style.top+";Left is :"+ele.style.left;
 		*/
+		var canvas = document.getElementById('workspace');
 		centerY=centerY+(parseInt(acceleration.y*10));
 		centerX=centerX+(parseInt(acceleration.x*(-1)*10));
 		radius=20;
 		//writeText(centerY+" "+centerX);
-		/*if(centerX<radius){centerX=radius;}
+		if(centerX<radius){centerX=radius;}
 		if(centerY<radius){centerY=radius;}
 		if(centerX>(canvas.width-radius)){centerX=canvas.width-radius;}
 		if(centerY>(canvas.height-radius)){centerY=canvas.height-radius;}
-		drawCircle(centerX,centerY,radius);*/
+		drawCircle(centerX,centerY,radius);
 		//drawCircle(10,70,radius);
     }
 
