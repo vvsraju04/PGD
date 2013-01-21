@@ -107,15 +107,15 @@ var centerX=0 ;
     var metrics = context.measureText(str);
     var met_width = metrics.width;
     
-	context.beginPath();
+	/*context.beginPath();
     context.rect((canvas.width/2)-(met_width/2)-10, (canvas.height/2)-5 , met_width+20, 50);
     context.fillStyle = 'black';
     context.fill();
     context.lineWidth = 7;
     context.strokeStyle = 'white';
-    context.stroke();
+    context.stroke();*/
 	context.font = '20pt Calibri';
-    context.fillStyle = 'white';
+    context.fillStyle = 'black';
     context.lineWidth = 3;
     context.fillText(str, (canvas.width/2)-(met_width/2), canvas.height/2);
    }
