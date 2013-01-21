@@ -25,8 +25,8 @@
     <script type="text/javascript" charset="utf-8">
 //adb -s S6102239b06fd install  -r "PGD-debug(1).apk"
 
-var centerX = canvas.width / 2;
-      var centerY = canvas.height / 2;
+var centerX ;
+      var centerY ;
       var radius = 20;
     // The watch id references the current `watchHeading`
     var watchID = null;
@@ -161,7 +161,7 @@ var centerX = canvas.width / 2;
       container.style.height = h+"px";
       container.style.width = w+"px";
     }
-	  drawCircle(centerX,centerY,radius);
+	  drawCircle(canvas.width/2,canvas.height/2,radius);
 	  
 
       
