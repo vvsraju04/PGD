@@ -84,13 +84,18 @@ var centerX=0 ;
   }
   function checkMeetPoint(x1,y1,x2,x2,r1,r2)
   {
+		if(((x1+r1)>(x2-r2)) && ((y1+r1)>(y2-r2)))
+		{
+			return 1;
+		}
 		return 0;
   }
   function gameOver()
   {
-		var my_media = new Media("/android_asset/www/pause.mp3");
+		var my_media = new Media("/android_asset/www/gameover.mp3");
 		my_media.play();
 		stopWatch();
+		writeText("Game Over");
   }
   function writeText(str)
   {
