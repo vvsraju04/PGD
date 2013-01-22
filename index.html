@@ -28,7 +28,8 @@
 var centerX=0 ;
       var centerY=0;
       var radius = 20;
-	  watch_stopped=0;
+	  var watch_stopped=0;
+	  var gameover_flag=0;
     // The watch id references the current `watchHeading`
     var watchID = null;
 
@@ -100,7 +101,7 @@ var centerX=0 ;
 			my_media.play();
 			stopWatch();
 			writeText("Game Over");
-			gameover_flag=0;
+			gameover_flag=1;
 		}
   }
   function writeText(str)
