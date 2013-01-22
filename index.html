@@ -104,6 +104,8 @@ var centerX=0 ;
     // Stop watching the compass
     //
     function stopWatch() {
+		var my_media = new Media("./pause.mp3");
+		my_media.play();
         if (watchID) {
             navigator.compass.clearWatch(watchID);
             watchID = null;
