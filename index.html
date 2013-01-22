@@ -69,6 +69,19 @@ var centerX=0 ;
       context.strokeStyle = '#003300';
       context.stroke();
   }
+  function drawHole(X,Y,r){
+ var canvas = document.getElementById('workspace');
+      var context = canvas.getContext('2d');
+	  context.clearRect(0, 0, canvas.width, canvas.height);
+	  	
+  context.beginPath();
+      context.arc(X, Y, r, 0, 2 * Math.PI, false);
+      context.fillStyle = 'black';
+      context.fill();
+      context.lineWidth = 5;
+      context.strokeStyle = '#003300';
+      context.stroke();
+  }
   function writeText(str)
   {
     var canvas = document.getElementById('workspace');
@@ -169,7 +182,14 @@ var centerX=0 ;
 		if(centerY<radius){centerY=radius;}
 		if(centerX>(canvas.width-radius)){centerX=(canvas.width)-radius;}
 		if(centerY>(canvas.height-radius)){centerY=(canvas.height)-radius;}
+		holeX=(canvas.width)-radius;
+		holeY=(canvas.height)-radius;
 		drawCircle(centerX,centerY,radius);
+		drawHole(holeX,holeY,radius+10);
+		if(checkMeetPoint(centerX,centerY,holeX,holeY,radius,radius+10)==1)
+		{
+			gameOver();
+		}
 		//drawCircle(10,70,radius);
     }
 
