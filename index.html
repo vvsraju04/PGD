@@ -82,6 +82,16 @@ var centerX=0 ;
       context.strokeStyle = '#003300';
       context.stroke();
   }
+  function checkMeetPoint(x1,y1,x2,x2,r1,r2)
+  {
+		return 0;
+  }
+  function gameOver()
+  {
+		var my_media = new Media("/android_asset/www/pause.mp3");
+		my_media.play();
+		stopWatch();
+  }
   function writeText(str)
   {
     var canvas = document.getElementById('workspace');
@@ -117,8 +127,7 @@ var centerX=0 ;
     // Stop watching the compass
     //
     function stopWatch() {
-		var my_media = new Media("/android_asset/www/pause.mp3");
-		my_media.play();
+	
         if (watchID) {
             navigator.compass.clearWatch(watchID);
             watchID = null;
@@ -130,7 +139,13 @@ var centerX=0 ;
 
     }
 	
-
+   function gamePause()
+   {
+			var my_media = new Media("/android_asset/www/pause.mp3");
+		my_media.play();
+		stopWatch();
+	}
+	
    function checkWatch(e){
    e.preventDefault();
    //showAlert("You are winnners");
