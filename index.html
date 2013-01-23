@@ -30,6 +30,7 @@ var centerX=0 ;
       var radius = 20;
 	  var watch_stopped=0;
 	  var gameover_flag=0;
+	  var my_media=0;
     // The watch id references the current `watchHeading`
     var watchID = null;
 
@@ -97,7 +98,7 @@ var centerX=0 ;
   {
 		if(gameover_flag==0)
 		{
-			var my_media = new Media("/android_asset/www/gameover.mp3");
+			my_media = new Media("/android_asset/www/gameover.mp3");
 			my_media.play();
 			stopWatch();
 			writeText("Game Over");
@@ -153,7 +154,7 @@ var centerX=0 ;
 	
    function gamePause()
    {
-			var my_media = new Media("/android_asset/www/pause.mp3");
+		my_media = new Media("/android_asset/www/pause.mp3");
 		my_media.play();
 		stopWatch();
 	}
@@ -161,9 +162,14 @@ var centerX=0 ;
    function checkWatch(e){
    e.preventDefault();
    //showAlert("You are winnners");
-		if(watch_stopped==1)
+		 if(gameover_flag==1)
+		 {
+			my_media.stop();
+		}
+		if(watch_stopped==1 || gameover_flag==1)
 		{
 			watch_stopped=0;
+			gameover_flag=0;
 			startWatch();
 		}
 		else
