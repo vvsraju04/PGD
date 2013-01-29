@@ -27,6 +27,8 @@
 
 var centerX=0 ;
       var centerY=0;
+	  var rX=30;
+	  var rY=30;
       var radius = 20;
 	  var watch_stopped=0;
 	  var gameover_flag=0;
@@ -83,6 +85,20 @@ var centerX=0 ;
       context.fill();
       context.lineWidth = 5;
       context.strokeStyle = '#003300';
+      context.stroke();
+	  drawCoin(rX,rY,r-10);
+  }
+    function drawCoin(X,Y,r){
+ var canvas = document.getElementById('workspace');
+      var context = canvas.getContext('2d');
+	  //context.clearRect(0, 0, canvas.width, canvas.height);
+	  	
+  context.beginPath();
+      context.arc(X, Y, r, 0, 2 * Math.PI, false);
+      context.fillStyle = '#FFD700';
+      context.fill();
+      context.lineWidth = 5;
+      context.strokeStyle = '#FFDF00';
       context.stroke();
   }
   function checkMeetPoint(x1,y1,x2,y2,r1,r2)
